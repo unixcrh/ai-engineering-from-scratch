@@ -7,7 +7,7 @@
   "phases/14-agent-engineering/06-tool-use-and-function-calling/docs/en.md": "73cf8bf653c6148817147fd98b4fc780d9794ca3e9651605f6c8e3f242a14992",
   "phases/14-agent-engineering/07-memory-virtual-context-memgpt/docs/en.md": "71b0ba93e4d737f64c1c7a90408489676e35aaa75418050ca42c5a68a95e355d",
   "phases/14-agent-engineering/08-memory-blocks-sleep-time-compute/docs/en.md": "c9d406091f226f33e6b8336bd887d12e7a8cdbe769b257a6c6bda4988eff6f3b",
-  "phases/14-agent-engineering/09-hybrid-memory-mem0/docs/en.md": "f7e13f26fd141cdf48067ab7f09c16bc63d35f6eb65063d4378dc29c7d3a2ebb",
+  "phases/14-agent-engineering/09-hybrid-memory-mem0/docs/en.md": "c7744ab0bcad640024d20164aab2f78a349c5aeb3839c969be1278cb3ad96204",
   "phases/14-agent-engineering/10-skill-libraries-voyager/docs/en.md": "c6cf28951a1e4272831bb047e46deda31477551d3f6e142633ec101e6cce5bb2",
   "phases/14-agent-engineering/11-planning-htn-and-evolutionary/docs/en.md": "f4999bbfd5e356debc4193581fc9a9b6df991366783c41110c5296781eeeb020",
   "phases/14-agent-engineering/12-anthropic-workflow-patterns/docs/en.md": "55c8edf5c8a62595d2db17d555b2ca3cddf12a8b8d8bdf0ff745b347000c0a57",
@@ -40,7 +40,7 @@
   "phases/14-agent-engineering/39-reviewer-agent/docs/en.md": "363be9d97da5499c7fbfe8381559490ce77bbb1af46c45f33f01b5999e0086f1",
   "phases/14-agent-engineering/40-multi-session-handoff/docs/en.md": "d2537f34853af5e07bae24f3d5c5198bf321aa4de6fec9349ac5cd7804d723c4",
   "phases/14-agent-engineering/41-workbench-for-real-repos/docs/en.md": "75d2298297ec8a23832dea06df7e12a448e1030b265465aac178dc914b881d27",
-  "phases/14-agent-engineering/42-agent-workbench-capstone/docs/en.md": "8e282c077084bd9c8d596d2e23d11742af2da20390507f4e0e27e59c03330323",
+  "phases/14-agent-engineering/42-agent-workbench-capstone/docs/en.md": "a8307ba30442dd1b2eb29b6c642586d92bdf2ba04c6f9f4d6c357c7e1c98627f",
   "phases/14-agent-engineering/43-frame-the-task-before-code/docs/en.md": "b5ebe37b63dd21d1abba0472c8abf6b07c070b321b17d3cda1c4e216e1a7e32d",
   "phases/14-agent-engineering/44-plan-from-evidence/docs/en.md": "1018b075aafa5bb25c695859db764d57a00d1991c450c75511ce0bc3cb6c8139",
   "phases/14-agent-engineering/45-delegate-with-isolation/docs/en.md": "cdd379d9f31f811933d4ab1897e7c95b3f7e2e84f4d418d4fa6ebae2d1559dfb",
@@ -52,5 +52,5 @@
   "phases/14-agent-engineering/51-write-specifications-that-preserve-judgment/docs/en.md": "e63576917c5e0a1ea4824bead4391f25f9733977419e785b272ff5076d1f11c3",
   "phases/14-agent-engineering/52-design-success-metrics/docs/en.md": "dd1c976a46c3cffd2de66283c967c8b6589217f3171e2168b8f6852fdbc27ecc",
   "phases/14-agent-engineering/53-prototype-pilot-or-production/docs/en.md": "2f596fd43c98189fc0c314b87b59aa94a6e6351e643cfbd4832ba8b33e53c455",
-  "phases/14-agent-engineering/54-build-the-feedback-ratchet/docs/en.md": "b5ecda7b1df517e6da28990ed22498bf589c5a8ce06d49b1cdd6cf34dfcb9a3a"
+  "phases/14-agent-engineering/54-build-the-feedback-ratchet/docs/en.md": "9320ff565659a4952845cb0eeb3e4416390337391f42f7d08963be0add3ca3ed"
 }
