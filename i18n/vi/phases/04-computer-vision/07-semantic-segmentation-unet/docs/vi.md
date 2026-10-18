@@ -87,10 +87,10 @@ Cả hai đều xuất hiện trong tự nhiên. Đối với một U-Net đầu
 
 ### Cross-entropy trên lưới pixel
 
-Đối với phân đoạn ngữ nghĩa với lớp C, đầu ra mô hình là `(N, C, H, W)`Mục tiêu là`(N, H, W)`với các ID lớp nguyên số. Cross-entropy giống như trường hợp phân loại, chỉ áp dụng ở mọi vị trí không gian:
+Đối với phân đoạn ngữ nghĩa với $C$các lớp, mô hình đầu ra là `(N, C, H, W)`Mục tiêu là`(N, H, W)`với các ID lớp nguyên số. Cross-entropy giống như trường hợp phân loại, chỉ áp dụng ở mọi vị trí không gian:
 
-```
-Loss = mean over (n, h, w) of -log( softmax(logits[n, :, h, w])[target[n, h, w]] )
+```math
+\text{Loss} = \mathop{\mathrm{mean}}\limits_{(n, h, w)} \left[ -\log\left( \mathop{\mathrm{softmax}}(\text{logits}[n, :, h, w])[\text{target}[n, h, w]] \right) \right]
 ```
 
 `F.cross_entropy`PyTorch xử lý hình dạng này một cách tự nhiên.
@@ -101,17 +101,19 @@ Cross-entropy đối xử với mọi pixel bằng nhau. Điều đó là sai kh
 
 Thiếu tích Dice giải quyết vấn đề này bằng cách trực tiếp tối ưu hóa sự chồng chéo giữa mặt nạ dự đoán và thực:
 
-```
-Dice(p, y) = 2 * sum(p * y) / (sum(p) + sum(y) + epsilon)
-Dice_loss = 1 - Dice
+```math
+\begin{aligned}
+\mathop{\mathrm{Dice}}(p, y) &= \frac{2 \sum (p \cdot y)}{\sum p + \sum y + \epsilon} \\
+\text{Dice}_{\text{loss}} &= 1 - \text{Dice}
+\end{aligned}
 ```
 
 nơi `p`là bản đồ xác suất sigmoid/softmax cho một lớp và `y`là mặt nạ thực tại cơ bản nhị phân. sự mất mát chỉ là không khi sự chồng chéo hoàn hảo. Bởi vì nó dựa trên tỷ lệ, sự mất cân bằng lớp là không liên quan.
 
 Trong thực tế, sử dụng **combined loss**- Có thể là:
 
-```
-L = L_cross_entropy + lambda * L_dice       (lambda ~ 1)
+```math
+L = L_{\text{cross\_entropy}} + \lambda \cdot L_{\text{dice}} \qquad (\lambda \approx 1)
 ```
 
 Cross-entropy cung cấp gradient ổn định ban đầu trong đào tạo; Dice tập trung đuôi đào tạo vào thực sự phù hợp với hình dạng mặt nạ.
@@ -120,7 +122,7 @@ Cross-entropy cung cấp gradient ổn định ban đầu trong đào tạo; Dic
 
 - **Pixel accuracy**% của các pixel được dự đoán đúng. rẻ. Phá vỡ trên dữ liệu không cân bằng vì cùng lý do như chính xác trong phân loại.
 - **IoU per class** giao thông trên liên đoàn cho mỗi lớp mặt nạ; trung bình giữa các lớp = mIoU.
-- **Dice (F1 on pixels)** tương tự như IoU; `Dice = 2 * IoU / (1 + IoU)`Phương pháp hình ảnh y tế thích Dice, cộng đồng lái xe thích IoU; chúng có liên quan một cách đơn giản.
+- **Dice (F1 on pixels)** tương tự như IoU; $\text{Dice} = 2 \cdot \text{IoU} / (1 + \text{IoU})$Phương pháp hình ảnh y tế thích Dice, cộng đồng lái xe thích IoU; chúng có liên quan một cách đơn giản.
 - **Boundary F1** đo lường ranh giới dự đoán gần như thế nào với ranh giới thực tế mặt đất, trừng phạt ngay cả những thay đổi nhỏ.
 
 Tờ báo cáo về một lớp học, không chỉ là một lớp học.

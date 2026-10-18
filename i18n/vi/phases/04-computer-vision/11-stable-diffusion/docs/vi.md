@@ -55,8 +55,8 @@ flowchart LR
 
 Điều kiện văn bản đơn học `epsilon_theta(x_t, t, c)`cho mỗi lần gọi `c`CFG đào tạo cùng một mạng với `c`giảm 10% thời gian (được thay thế bằng một nhúng trống), đưa ra một mô hình duy nhất dự đoán cả tiếng ồn có điều kiện và không điều kiện.
 
-```
-eps = eps_uncond + w * (eps_cond - eps_uncond)
+```math
+\epsilon = \epsilon_{\text{uncond}} + w \cdot (\epsilon_{\text{cond}} - \epsilon_{\text{uncond}})
 ```
 
 `w`là thang đo hướng dẫn. `w=0`là không có điều kiện,`w=1`là hoàn toàn có điều kiện,`w>1`đẩy đầu ra hướng tới "còn điều kiện hơn trên prompt" với chi phí của sự đa dạng.`w=7.5`- Tôi không biết.
