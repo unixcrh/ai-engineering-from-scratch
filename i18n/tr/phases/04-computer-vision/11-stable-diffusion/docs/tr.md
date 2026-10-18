@@ -55,8 +55,8 @@ flowchart LR
 
 Basit metin koşullandırması öğrenir `epsilon_theta(x_t, t, c)`Her çağrısı için .`c`CFG aynı ağı `c`Bu nedenle, bu durumun sonucunda, hem koşullu hem de koşulsuz gürültüyi tahmin eden tek bir model oluşturuldu.
 
-```
-eps = eps_uncond + w * (eps_cond - eps_uncond)
+```math
+\epsilon = \epsilon_{\text{uncond}} + w \cdot (\epsilon_{\text{cond}} - \epsilon_{\text{uncond}})
 ```
 
 `w`- Bu yönlendirme ölçeği.`w=0`Şartsızdır.`w=1`- Kesinlikle şartlı.`w>1`SD standart olarak `w=7.5`- Evet .
