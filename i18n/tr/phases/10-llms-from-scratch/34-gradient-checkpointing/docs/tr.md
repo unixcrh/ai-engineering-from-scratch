@@ -37,13 +37,13 @@ Ağı ikiye böl .`N`Önceki bölümler. Önceki bölümler sırasında, her bö
 - Hatıra: 32 katman giriş (küçük) vs 32 * (katman başına etkinleştirme hacmi) (çok büyük).
 - Ekstra hesaplama: Segmente başına 1 ekstra ileri, yani %33 daha fazla ileri FLOP toplamı (geriye doğru 2x ileri olduğu için, tam adım 1 + 1 + 2 = 4 birim yerine 1 + 2 = 3 olur).
 
-Bu Chen et al. 2016 tarihli orijinal tarifi: her bir kontrol noktası `sqrt(L)`L=64, 8 kontrol noktası.
+Bu Chen et al. 2016 tarihli orijinal tarifi: her bir kontrol noktası `sqrt(L)`- Bilgisayar ve hafıza dengesini sağlamak için katmanlar.$L=64$Bu 8 kontrol noktası.
 
 ### Seçimsel Kontrol Noktası (Korthikanti 2022)
 
 Tüm etkinleştirmeler aynı maliyetli değil.`B*L*L*heads`FFN gizli etkinliği `B*L*4d`Uzun sekanslarda softmax hakimdir.
 
-Seçimsel kontrol noktası, ucuz depolama aktivasyonlarını (lineer projeksiyonlar, kalıntılar) tutar ve sadece pahalı olanları (özen) yeniden hesaplar.
+Seçimsel kontrol noktası, ucuz depolama aktivasyonlarını (lineer projeksiyonlar, kalıntılar) tutar ve sadece pahalı olanları yeniden hesaplar (özen).$O(L^2)$- Hatıra.
 
 Megatron-Core bunu "seçici" etkinleştirme yeniden hesaplama olarak uyguluyor.
 
@@ -293,8 +293,8 @@ Bu ders bize çok yararlı .`outputs/prompt-activation-recompute-policy.md` mode
 | Block checkpointing | "Coarse-grained" | Checkpoint whole transformer blocks; largest granularity |
 | FLOP overhead | "The compute tax" | Extra FLOPs per step = (recompute FLOPs) / (fwd + bwd FLOPs); 33% naive, 5% selective |
 | Activation offload | "Ship to CPU" | Move activations to CPU RAM across forward->backward; alternative to recompute |
-| sqrt-L rule | "The classical optimum" | For uniform-cost layers, optimal checkpoint spacing is sqrt(L) layers |
-| Attention-softmax volume | "The O(L^2) problem" | L^2 * heads * batch floats; dominates activation memory at long contexts |
+| sqrt-L rule | "The classical optimum" | For uniform-cost layers, optimal checkpoint spacing is $\sqrt{L}$ layers |
+| Attention-softmax volume | "The O(L^2) problem" | $L^2 \cdot \text{heads} \cdot \text{batch}$ floats; dominates activation memory at long contexts |
 
 ## Daha Fazla Okumak
 

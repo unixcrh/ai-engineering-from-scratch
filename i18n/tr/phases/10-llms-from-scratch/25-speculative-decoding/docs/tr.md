@@ -53,8 +53,8 @@ nerede`(p - q)+`Bu, bir proje ve hedef için uygun olduğunda (`p ≈ q`1) kabul
 
 Eğer taslak modelinin token seviyesindeki kabul oranı `α`, hedef ileri geçiş başına üretilen beklenen tokenler:
 
-```
-E[tokens] = (1 - α^{K+1}) / (1 - α)        # K = draft length, α in [0, 1]
+```math
+\mathbb{E}[\text{tokens}] = \frac{1 - \alpha^{K+1}}{1 - \alpha} \qquad K = \text{draft length}, \ \alpha \in [0, 1]
 ```
 
 - Evet .`α = 0.8, K = 4`- Evet .`(1 - 0.8^5)/(1 - 0.8) = 3.36`Tek bir hedef vadeli maliyetleri yaklaşık olarak `cost_q * K + cost_p`(K taslak adımlar artı bir hedef doğrulama).`cost_p >> cost_q * K`hızlanma oranı `3.36× / 1 = 3.36×`- Çıktım.
@@ -175,7 +175,7 @@ Bu ders bize çok yararlı .`outputs/skill-speculative-tuning.md` bir hedef mode
 
 1. Tam reddetme kuralını uygulayın ve empirik olarak doğrulayın.`speculative_decode`ve basit hedef örnekleme yoluyla; iki çıkış dağıtımı arasındaki TV mesafesini hesaplayın. < 0,01 olmalıdır.
 
-2. Hızlandırma formülünü hesaplayın.`α`ve `K`, hedef-gelişme başına beklenen tokenleri çiz.
+2. Hızlandırma formülünü hesaplayın.`α`ve `K`, hedef öne doğru beklenen tokenleri çiz.$K$için$\alpha \in \lbrace 0.5, 0.7, 0.9 \rbrace$- Evet .
 
 3. Küçük bir çekim yapın, 124M GPT-2 hedefini alın ve 100M tokenlerde 30M GPT-2 çekimini KL kaybı ile destille edin.`α`Beklenen: 0.6-0.7.
 
